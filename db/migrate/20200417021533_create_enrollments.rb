@@ -5,7 +5,7 @@ class CreateEnrollments < ActiveRecord::Migration[6.0]
       t.references :classroom, null: false, foreign_key: true
       t.string :perio, limit: 2
       t.text :description
-      t.boolean :status
+      t.boolean :status, default: 0
 
       t.timestamps
     end

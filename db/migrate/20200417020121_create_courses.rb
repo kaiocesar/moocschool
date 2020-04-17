@@ -5,7 +5,7 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.string :tritation
       t.string :amount_periods, limit: 2
       t.time :workload
-      t.boolean :status
+      t.boolean :status, default: 0
 
       t.timestamps
     end

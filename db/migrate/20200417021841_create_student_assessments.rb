@@ -3,8 +3,8 @@ class CreateStudentAssessments < ActiveRecord::Migration[6.0]
     create_table :student_assessments do |t|
       t.references :assessment, null: false, foreign_key: true
       t.references :enrollment, null: false, foreign_key: true
-      t.integer :weight
-      t.boolean :status
+      t.integer :weight, default: 0
+      t.boolean :status, default: 0
 
       t.timestamps
     end

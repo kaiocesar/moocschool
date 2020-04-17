@@ -3,7 +3,7 @@ class CreateStudents < ActiveRecord::Migration[6.0]
     create_table :students do |t|
       t.string :name
       t.string :cpf, limit: 15
-      t.boolean :status
+      t.boolean :status, default: 0
 
       t.timestamps
     end
