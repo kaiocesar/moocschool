@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
   create_table "enrollments", force: :cascade do |t|
     t.integer "student_id", null: false
     t.integer "classroom_id", null: false
-    t.string "perio", limit: 2
+    t.string "period", limit: 2
     t.text "description"
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
