@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
 
   create_table "absences", force: :cascade do |t|
     t.date "date_absence"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.integer "grid_id", null: false
     t.integer "enrollment_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
 
   create_table "assessments", force: :cascade do |t|
     t.string "name"
-    t.integer "weight"
+    t.integer "weight", default: 0
     t.integer "grid_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
     t.string "tritation"
     t.string "amount_periods", limit: 2
     t.time "workload"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
     t.integer "classroom_id", null: false
     t.string "perio", limit: 2
     t.text "description"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_enrollments_on_classroom_id"
@@ -121,15 +121,15 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
     t.string "cnpj"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "status"
+    t.boolean "status", default: false
     t.index ["cnpj"], name: "index_schools_on_cnpj", unique: true
   end
 
   create_table "student_assessments", force: :cascade do |t|
     t.integer "assessment_id", null: false
     t.integer "enrollment_id", null: false
-    t.integer "weight"
-    t.boolean "status"
+    t.integer "weight", default: 0
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_student_assessments_on_assessment_id"
@@ -139,9 +139,9 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
   create_table "student_boletims", force: :cascade do |t|
     t.integer "enrollment_id", null: false
     t.integer "grid_id", null: false
-    t.integer "total"
-    t.boolean "is_approved"
-    t.boolean "status"
+    t.integer "total", default: 0
+    t.boolean "is_approved", default: false
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["enrollment_id"], name: "index_student_boletims_on_enrollment_id"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "cpf", limit: 15
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cpf"], name: "index_students_on_cpf", unique: true
