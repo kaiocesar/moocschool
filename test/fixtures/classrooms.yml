@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_year: 2020-04-16 23:08:28
+  end_year: 2020-04-16 23:08:28
+  period: MyString
+  course: one
+
+two:
+  name: MyString
+  start_year: 2020-04-16 23:08:28
+  end_year: 2020-04-16 23:08:28
+  period: MyString
+  course: two

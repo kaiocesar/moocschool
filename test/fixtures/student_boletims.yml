@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enrollment: one
+  grid: one
+  total: 1
+  is_approved: false
+  status: false
+
+two:
+  enrollment: two
+  grid: two
+  total: 1
+  is_approved: false
+  status: false

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_period: 2020-04-16 23:06:34
+  end_period: 2020-04-16 23:06:34
+  type_period: MyString
+  day_of_class: MyString
+
+two:
+  start_period: 2020-04-16 23:06:34
+  end_period: 2020-04-16 23:06:34
+  type_period: MyString
+  day_of_class: MyString

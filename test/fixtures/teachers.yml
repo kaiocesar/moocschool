@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aname: MyString
+  cpf: MyString
+  status: false
+
+two:
+  aname: MyString
+  cpf: MyString
+  status: false

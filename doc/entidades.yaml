@@ -1,0 +1,36 @@
+- courses:
+  Todos os cursos, ex. engenharia da computação, administração etc.
+
+- disciplines:
+  Disciplines relacionadas ao curso
+
+- classe_course:
+  Turmas relacionadas ao curso
+
+- teachers:
+  Professores
+
+- periods:
+  Periodos, ex. matutino, vespertino, noturno.
+
+- grids:
+  Relação de professor com turma, disciplina e periodo
+
+- assessments:
+  Avaliações, relacionada a grade(grids) a qual o professor lança o peço de 
+  cada avaliação, ex. PROVA 1 = 10%, PROVA 2 = 40%, TRABALHO = 40%, PREVIAS = 10%
+
+- students:
+  Alunos
+
+- enrollments:
+  Matriculas dos alunos, relacionada a turma no periodo.
+
+- absences:
+  Faltas do aluno, relacionadas a grade e matricula.
+
+- student_assessments:
+  Boletim parcial para a nota das avaliações, relacionado as avaliações e matricula
+  
+- student_boletim:
+  Boletim final, com o resultaado total e a aprovação (boleano)

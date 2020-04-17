@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tritation: MyString
+  amount_periods: MyString
+  workload: 2020-04-16 23:01:21
+  status: false
+
+two:
+  name: MyString
+  tritation: MyString
+  amount_periods: MyString
+  workload: 2020-04-16 23:01:21
+  status: false
