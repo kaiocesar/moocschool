@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :cpf, limit: 15
       t.boolean :status, default: 0
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

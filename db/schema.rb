@@ -152,9 +152,11 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
     t.string "name"
     t.string "cpf", limit: 15
     t.boolean "status", default: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cpf"], name: "index_students_on_cpf", unique: true
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -194,4 +196,5 @@ ActiveRecord::Schema.define(version: 2020_04_17_022404) do
   add_foreign_key "student_assessments", "enrollments"
   add_foreign_key "student_boletims", "enrollments"
   add_foreign_key "student_boletims", "grids"
+  add_foreign_key "students", "users"
 end
