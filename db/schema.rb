@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_04_17_021841) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "titration"
-    t.string "amount_periods_months", limit: 2
-    t.time "workload"
+    t.string "amount_periods_months", limit: 3
+    t.string "workload"
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -20,9 +20,10 @@ curso_php = Course.create(
     name: "Desenvolvimento Web - Frontend",
     titration: "técnico",
     amount_periods_months: "10", 
-    workload: 360,
+    workload: "360", # corrigir o sentido desse campo
     status: true
 )
+
 
 #======================================
 #   CRIAR DISCIPLINAS PARA O CURSO
