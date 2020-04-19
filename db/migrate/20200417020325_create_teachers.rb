@@ -4,7 +4,7 @@ class CreateTeachers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :cpf, limit: 15
       t.boolean :status, defaut: 0
-
+      
       t.timestamps
     end
     add_index :teachers, :cpf, unique: true
