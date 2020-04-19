@@ -2,13 +2,15 @@
 #   CRIAR UM USUÁRIO
 #======================================
 usuario_professor = User.create(
-    email: "usuario1@localhost.com",
-    encrypted_password: "123456789"
+    email: "professor_#{rand(1000)}@#{rand(1000)}localhost.com",
+    password: "123456789",
+    password_confirmation: "123456789"
 )
 
 usuario_estudante = User.create(
-    email: "estudante@localhost.com",
-    encrypted_password: "123456789"
+    email: "estudante_#{rand(1000)}@#{rand(1000)}localhost.com",
+    password: "123456789",
+    password_confirmation: "123456789"
 )
 
 #======================================
@@ -33,14 +35,12 @@ logica_programacao = Discipline.create(
 #======================================
 #   CADASTRAR ALGUNS PROFESSORES
 #======================================
-professora_tina = Teacher.create(
+professora_tina = usuario_professor.teacher.create(
     name: "Cristina Ferreira",
-    cpf: "000.000.000-01", # aplicar uma validação especifica de CPF
-    status: true,
-    user: usuario_professor
+    cpf: "#{rand(999)}.#{rand(999)}.#{rand(999)}-#{rand(99)}", # aplicar uma validação especifica de CPF
+    status: true
 )
-puts professora_tina
-exit!
+
 
 #======================================
 #   CADASTRAR ALGUMAS TURMAS
@@ -76,11 +76,10 @@ grade_matutina_curso_dw_logica = Grid.create(
 #======================================
 #   CRIAR UM ALUNO
 #======================================
-aluna_juliana = Student.create(
-    name: "Juliana Evangelista",
-    cpf: "111.111.111-11", # aplicar validação de cpf
-    status: true,
-    user_id: usuario_estudante
+aluna_juliana = usuario_estudante.student.create(
+    name: "Juliana #{rand(100)}Evangelista",
+    cpf: "#{rand(999)}.#{rand(999)}.#{rand(999)}-#{rand(99)}", # aplicar validação de cpf
+    status: true
 )
 #======================================
 #   MATRICULAR ALUNA A UM CURSO
@@ -96,17 +95,15 @@ matricula_aluna_juliana = Enrollment.create(
 #======================================
 #   CRIAR AVALIAÇÕES
 #======================================
-avaliacao_p1_logica = assessment.create(
+avaliacao_p1_logica = Assessment.create(
     name: "P1 de lógica",
-    weight: 10,
-    grid_id: grade_matutina_curso_dw_logica
+    weight: 10
 )
 
 #======================================
 #   CRIAR A RELAÇÃO DA AVALIAÇÃO PARA O ESTUDANTE (LANÇAR A NOTA DO ALUNO)
 #======================================
 nota_juliana = StudentAssessment.create(
-    name: "nota 1", # qual é a necessidade deste campo?
     assessment_id: avaliacao_p1_logica,
     enrollment_id: matricula_aluna_juliana,
     weight: 7,
