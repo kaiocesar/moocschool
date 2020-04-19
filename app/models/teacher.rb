@@ -1,4 +1,4 @@
 class Teacher < ApplicationRecord
     has_many :grid
-    validates :name, :cpf, presence: true
+    validates :name, :cpf, cpf: {mask: true}, presence: true
 end
