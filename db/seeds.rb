@@ -2,13 +2,13 @@
 #   CRIAR UM USUÁRIO
 #======================================
 usuario_professor = User.create(
-    email: "professor_#{rand(1000)}@#{rand(1000)}localhost.com",
+    email: Faker::Internet.email,
     password: "123456789",
     password_confirmation: "123456789"
 )
 
 usuario_estudante = User.create(
-    email: "estudante_#{rand(1000)}@#{rand(1000)}localhost.com",
+    email: Faker::Internet.email,
     password: "123456789",
     password_confirmation: "123456789"
 )
@@ -17,7 +17,7 @@ usuario_estudante = User.create(
 #   CRIAR UM CURSO
 #======================================
 curso_php = Course.create(
-    name: "Desenvolvimento Web - Frontend",
+    name: "Desenvolvimento de #{Faker::ProgrammingLanguage.name}",
     titration: "técnico",
     amount_periods_months: "10", 
     workload: "360", # corrigir o sentido desse campo
@@ -37,7 +37,7 @@ logica_programacao = Discipline.create(
 #   CADASTRAR ALGUNS PROFESSORES
 #======================================
 professora_tina = usuario_professor.teacher.create(
-    name: "Cristina Ferreira",
+    name: Faker::Name.name,
     cpf: "#{rand(999)}.#{rand(999)}.#{rand(999)}-#{rand(99)}", # aplicar uma validação especifica de CPF
     status: true
 )

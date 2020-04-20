@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+gem 'faker'
+
 gem 'validates_cpf'
 
 group :development, :test do
