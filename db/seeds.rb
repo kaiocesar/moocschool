@@ -24,13 +24,11 @@ curso_php = Course.create(
     status: true
 )
 
-
 #======================================
 #   CRIAR DISCIPLINAS PARA O CURSO
 #======================================
-logica_programacao = Discipline.create(
-    name: "Lógica de programação",
-    course_id: curso_php   # Se algum curso mudar disciplina no futuro, isso irá alterar a grade dos cursos existente.
+logica_programacao = curso_php.discipline.create(
+    name: "Lógica de programação" # Se algum curso mudar disciplina no futuro, isso irá alterar a grade dos cursos existente.
 )
 
 #======================================
@@ -46,12 +44,11 @@ professora_tina = usuario_professor.teacher.create(
 #======================================
 #   CADASTRAR ALGUMAS TURMAS
 #======================================
-turma_desenvolvimento_web_1 = Classroom.create(
+turma_desenvolvimento_web_1 = curso_php.classroom.create(
     name: "DW1",    # criar uma lógica para gerar o nome, caso seja nesse naipe
     start_year: "2020-05-01", # corrigir o campo para somente ANO
     end_year: "2020-09-31",   # corrigir o campo para somente ANO 
-    period: "?", # esse banco não faz sentido existir
-    course_id: curso_php
+    period: "?" # esse campo não faz sentido existir
 )
 
 #======================================

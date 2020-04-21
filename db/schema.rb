@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_021841) do
+ActiveRecord::Schema.define(version: 2020_04_21_012516) do
 
   create_table "absences", force: :cascade do |t|
     t.date "date_absence"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 2020_04_17_021841) do
     t.index ["discipline_id"], name: "index_grids_on_discipline_id"
     t.index ["period_id"], name: "index_grids_on_period_id"
     t.index ["teacher_id"], name: "index_grids_on_teacher_id"
+  end
+
+  create_table "jwt_blacklists", force: :cascade do |t|
+    t.string "jti"
+    t.datetime "exp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jti"], name: "index_jwt_blacklists_on_jti"
   end
 
   create_table "periods", force: :cascade do |t|
