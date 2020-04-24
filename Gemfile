@@ -34,7 +34,7 @@ gem 'faker'
 
 gem 'validates_cpf'
 
-gem 'devise-jwt', '~> 0.5.8'
+gem 'devise-jwt', '~> 0.6.0'
 
 gem 'rack-cors'
 
