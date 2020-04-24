@@ -5,9 +5,8 @@ ENV RACK_ENV=$RAILS_ENV
 RUN apt-get update && \
     apt-get install -y nodejs npm && \
     apt-get install -y --no-install-recommends postgresql-client && \
+    apt-get install -y yarn && \
     rm -rf /var/lib/apt/lists/*
-
-RUN npm install npm@latest -g
 
 RUN mkdir /myapp
 WORKDIR /myapp
