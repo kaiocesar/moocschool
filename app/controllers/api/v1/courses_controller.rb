@@ -16,15 +16,14 @@ class Api::V1::CoursesController < ApplicationController
 
     def update
         course = Course.find_by(params[:id])
-        
-        if course.length
+        if course
             course.name = params[:name]
             course.titration = params[:titration]
             course.amount_periods_months = params[:amount_periods_months]
             course.workload = params[:workload]
             course.save!
         end
-
+        head :ok
     end
 
 end
