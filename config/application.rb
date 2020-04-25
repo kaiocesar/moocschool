@@ -8,7 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Moocschool
   class Application < Rails::Application
+    config.api_only = true
     config.load_defaults 6.0
+    config.middleware.use ActionDispatch::Flash
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do

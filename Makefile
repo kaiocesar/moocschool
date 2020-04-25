@@ -1,11 +1,16 @@
 SHELL := /bin/bash
 
-rs:
-	docker-compose run --service-ports --name moocschool --rm web \
-	rails s -b 0.0.0.0
+bu:
+	docker-compose build
+
+dba:
+	docker-compose run web rake db:create db:migrate
+
+cs:
+	docker-compose exec web rails console
 
 up:
-	docker-compose up --service-ports --name moocschool --rm web
+	docker-compose up
 
-down:
+dw:
 	docker-compose down
