@@ -1,8 +1,11 @@
 SHELL := /bin/bash
 
 bu:
-	docker-compose build
+	docker-compose build web
 
+ug:
+	docker-compose run --rm web bundle
+	
 dba:
 	docker-compose run web rake db:create db:migrate
 

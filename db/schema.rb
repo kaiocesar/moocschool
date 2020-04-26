@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_04_21_012516) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "absences", force: :cascade do |t|
     t.date "date_absence"
     t.boolean "status", default: false
-    t.integer "grid_id", null: false
-    t.integer "enrollment_id", null: false
+    t.bigint "grid_id", null: false
+    t.bigint "enrollment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["enrollment_id"], name: "index_absences_on_enrollment_id"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
   create_table "assessments", force: :cascade do |t|
     t.string "name"
     t.integer "weight", default: 0
-    t.integer "grid_id", null: false
+    t.bigint "grid_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["grid_id"], name: "index_assessments_on_grid_id"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
     t.datetime "start_year"
     t.datetime "end_year"
     t.string "period", limit: 2
-    t.integer "course_id", null: false
+    t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_classrooms_on_course_id"
@@ -55,15 +58,15 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
 
   create_table "disciplines", force: :cascade do |t|
     t.string "name"
-    t.integer "course_id", null: false
+    t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_disciplines_on_course_id"
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "classroom_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "classroom_id", null: false
     t.string "period", limit: 2
     t.text "description"
     t.boolean "status", default: false
@@ -74,10 +77,10 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
   end
 
   create_table "grids", force: :cascade do |t|
-    t.integer "teacher_id", null: false
-    t.integer "discipline_id", null: false
-    t.integer "classroom_id", null: false
-    t.integer "period_id", null: false
+    t.bigint "teacher_id", null: false
+    t.bigint "discipline_id", null: false
+    t.bigint "classroom_id", null: false
+    t.bigint "period_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_grids_on_classroom_id"
@@ -113,8 +116,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
   end
 
   create_table "student_assessments", force: :cascade do |t|
-    t.integer "assessment_id", null: false
-    t.integer "enrollment_id", null: false
+    t.bigint "assessment_id", null: false
+    t.bigint "enrollment_id", null: false
     t.integer "weight", default: 0
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -124,8 +127,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
   end
 
   create_table "student_boletims", force: :cascade do |t|
-    t.integer "enrollment_id", null: false
-    t.integer "grid_id", null: false
+    t.bigint "enrollment_id", null: false
+    t.bigint "grid_id", null: false
     t.integer "total", default: 0
     t.boolean "is_approved", default: false
     t.boolean "status", default: false
@@ -139,7 +142,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
     t.string "name"
     t.string "cpf", limit: 15
     t.boolean "status", default: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cpf"], name: "index_students_on_cpf", unique: true
@@ -150,7 +153,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_012516) do
     t.string "name"
     t.string "cpf", limit: 15
     t.boolean "status"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cpf"], name: "index_teachers_on_cpf", unique: true

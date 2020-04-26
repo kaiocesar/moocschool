@@ -1,24 +1,18 @@
-# README
+# MoocSchool
+This is an API to distribute endpoints for a Mooc plataform in React.js
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### requirements
+- docker
+  
+- fill the variables in the .env-example (move this one to .env)
 
-Things you may want to cover:
+### commands
 
-* Ruby version
+- build `make bu`
 
-* System dependencies
+- up the conatiner `make up`
 
-* Configuration
+- (in another terminal tab) install the Gem `make ug`
 
-* Database creation
+- create the database `make dba` 
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
