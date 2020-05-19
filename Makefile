@@ -13,7 +13,11 @@ cs:
 	docker-compose exec web rails console
 
 up:
-	docker-compose up
+	docker-compose up --build
 
 dw:
 	docker-compose down
+
+
+deletepid:
+	rm tmp/pids/server.pid 

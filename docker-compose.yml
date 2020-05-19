@@ -4,7 +4,7 @@ services:
     db:
         image: postgres
         volumes:
-            - ./tmp/db:/var/lib/postgresql/data
+            - postgresvolume1:/var/lib/postgresql/data
         expose:
             - "5432"
         env_file: .env
@@ -16,6 +16,9 @@ services:
         volumes:
             - .:/myapp
         ports:
-            - "3000:3000"
+            - "3001:3001"
         depends_on: 
             - db
+
+volumes:
+    postgresvolume1:
